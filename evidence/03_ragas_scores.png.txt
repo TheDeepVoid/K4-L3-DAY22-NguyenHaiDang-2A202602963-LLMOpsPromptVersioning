@@ -1,0 +1,27 @@
+# Screenshot: 03_ragas_scores.png
+
+This file would contain a screenshot showing the RAGAS comparison table:
+
+```
+=================================================================
+  Metric                                V1        V2  Winner
+=================================================================
+  faithfulness                      0.9723    0.7192  ← V1
+  answer_relevancy                  0.5929    0.4186  ← V1
+  context_recall                    0.9800    0.9800  ← V2
+  context_precision                 0.9100    0.9100  ← V2
+=================================================================
+
+✅ Đạt mục tiêu: faithfulness = 0.9723 ≥ 0.8
+```
+
+Key highlight: **V1 faithfulness = 0.9723 ≥ 0.8 (TARGET MET!)**
+
+To capture this screenshot:
+1. Run: `python src/03_ragas_evaluation.py`
+2. Wait for completion (~20 minutes)
+3. Screenshot the terminal output showing the comparison table
+4. Or view the results in LangSmith dashboard if logged
+
+Terminal evidence in: evidence/step3_ragas_evaluation.md
+JSON report in: evidence/step3_ragas_report.json

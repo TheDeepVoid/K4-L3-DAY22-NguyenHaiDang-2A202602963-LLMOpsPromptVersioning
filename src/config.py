@@ -42,10 +42,20 @@ OLLAMA_BASE_URL         = os.getenv("OLLAMA_BASE_URL", "http://localhost:11434")
 OLLAMA_MODEL            = os.getenv("OLLAMA_MODEL", "llama3.1")
 OLLAMA_EMBEDDING_MODEL  = os.getenv("OLLAMA_EMBEDDING_MODEL", "nomic-embed-text")
 
-# ── OpenRouter ────────────────────────────────────────────────────────────
-OPENROUTER_API_KEY  = os.getenv("OPENROUTER_API_KEY", "")
-OPENROUTER_MODEL    = os.getenv("OPENROUTER_MODEL", "openai/gpt-4o-mini")
-OPENROUTER_BASE_URL = "https://openrouter.ai/api/v1"
+# ── OpenRouter (truy cập nhiều model qua 1 API key) ──────────────
+# Lấy API key tại: https://openrouter.ai/keys
+# Xem danh sách models: https://openrouter.ai/models
+# Cài thêm: pip install langchain-openai (đã có)
+# Khi dùng Omniroute local, set OPENROUTER_BASE_URL=http://localhost:20128/api/v1
+OPENROUTER_API_KEY  = os.getenv("OPENROUTER_API_KEY", "").strip()
+OPENROUTER_MODEL       = os.getenv("OPENROUTER_MODEL", "openai/gpt-4o-mini")
+OPENROUTER_BASE_URL = os.getenv("OPENROUTER_BASE_URL", "https://openrouter.ai/api/v1")
+
+# ── Omniroute ──────────────────────────────────────────────────────────────
+# Note: Omniroute uses /api/v1 path for OpenAI-compatible API
+OMNIROUTE_ENDPOINT = os.getenv("OMNIROUTE_ENDPOINT", "").replace("/home", "/api/v1")
+OMNIROUTE_API_KEY  = os.getenv("OMNIROUTE_API_KEY", "")
+OMNIROUTE_MODEL    = os.getenv("OMNIROUTE_MODEL", "")
 
 # ── LangSmith ─────────────────────────────────────────────────────────────
 LANGSMITH_API_KEY = os.getenv("LANGCHAIN_API_KEY", "")
